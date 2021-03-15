@@ -26,7 +26,14 @@ import { AuthGuard } from './auth.guard';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [AuthGuard],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

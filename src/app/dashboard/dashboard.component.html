@@ -15,7 +15,9 @@
 </nav>
 <div class="container" style="margin-top: 20px;">
   <form name="form" class="form-left" #form="ngForm" [formGroup]="uploadForm">
-    <input 
+    <input
+    #fileInput
+    (click)="fileInput.value = null" 
     autocomplete="off"
     type="file"
     name="image"
