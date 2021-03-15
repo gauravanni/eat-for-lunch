@@ -29,6 +29,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     if(this.registerForm.valid){
+      if(this.registerForm.value.cfpassword!=this.registerForm.value.password){
+        alert('Password and confirm Password should match')
+        return
+      }
       delete this.registerForm.value.cfpassword
       const registerForm=this.registerForm.value
       this.authService.register(registerForm)
